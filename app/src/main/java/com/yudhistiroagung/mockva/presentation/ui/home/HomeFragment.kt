@@ -1,4 +1,4 @@
-package com.yudhistiroagung.mockva.ui.home
+package com.yudhistiroagung.mockva.presentation.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

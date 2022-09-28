@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragmentSplash"
-        android:name="com.yudhistiroagung.mockva.ui.splash.SplashFragment"
+        android:name="com.yudhistiroagung.mockva.presentation.ui.splash.SplashFragment"
         tools:layout="@layout/fragment_splash"
         >
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/fragmentLogin"
-        android:name="com.yudhistiroagung.mockva.ui.login.LoginFragment"
+        android:name="com.yudhistiroagung.mockva.presentation.ui.login.LoginFragment"
         tools:layout="@layout/fragment_login"
         >
         <action
@@ -28,13 +28,13 @@
 
     <fragment
         android:id="@+id/fragmentHome"
-        android:name="com.yudhistiroagung.mockva.ui.home.HomeFragment"
+        android:name="com.yudhistiroagung.mockva.presentation.ui.home.HomeFragment"
         tools:layout="@layout/fragment_home"
         />
 
     <fragment
         android:id="@+id/fragmentAccount"
-        android:name="com.yudhistiroagung.mockva.ui.account.AccountFragment"
+        android:name="com.yudhistiroagung.mockva.presentation.ui.account.AccountFragment"
         tools:layout="@layout/fragment_account"
         />
 

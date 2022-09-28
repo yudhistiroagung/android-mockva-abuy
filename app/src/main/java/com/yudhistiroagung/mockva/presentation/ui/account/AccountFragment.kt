@@ -1,4 +1,4 @@
-package com.yudhistiroagung.mockva.ui.account
+package com.yudhistiroagung.mockva.presentation.ui.account
 
 import android.os.Bundle
 import android.view.LayoutInflater
