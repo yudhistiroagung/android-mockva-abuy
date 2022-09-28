@@ -8,6 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.yudhistiroagung.mockva.R
+import com.yudhistiroagung.mockva.presentation.common.extension.navigateFadeAnimOptions
+import com.yudhistiroagung.mockva.presentation.common.extension.navigateSlideHorizontal
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -28,7 +30,10 @@ class SplashFragment: Fragment() {
     }
 
     private fun navigateToLoginPage() {
-        findNavController().navigate(SplashFragmentDirections.actionSplashToLoginFragment())
+        findNavController().navigateFadeAnimOptions(
+            SplashFragmentDirections.actionSplashToLoginFragment(),
+            R.id.app_nav,
+        )
     }
 
 }
