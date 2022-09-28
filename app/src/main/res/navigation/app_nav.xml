@@ -38,4 +38,15 @@
         tools:layout="@layout/fragment_account"
         />
 
+    <fragment
+        android:id="@+id/fragmentTransferConfirmation"
+        android:name="com.yudhistiroagung.mockva.presentation.ui.transfer_confirmation.TransferConfirmationFragment"
+        tools:layout="@layout/fragment_transfer_confirmation"
+        />
+    <fragment
+        android:id="@+id/fragmentTransferSuccess"
+        android:name="com.yudhistiroagung.mockva.presentation.ui.transfer_success.TransferSuccessFragment"
+        tools:layout="@layout/fragment_transfer_success"
+        />
+
 </navigation>
