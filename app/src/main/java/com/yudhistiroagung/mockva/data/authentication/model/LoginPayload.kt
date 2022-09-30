@@ -4,7 +4,9 @@ import com.google.gson.annotations.SerializedName
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class LoginResponse(
-    @SerializedName("_sessionId")
-    val sessionId: String,
+data class LoginPayload(
+    @SerializedName("username")
+    val username: String,
+    @SerializedName("password")
+    val password: String
 )
