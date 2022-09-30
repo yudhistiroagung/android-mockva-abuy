@@ -1,5 +1,6 @@
-package com.yudhistiroagung.mockva.data.di.module
+package com.yudhistiroagung.mockva.di.module
 
+import android.app.Application
 import android.content.Context
 import com.readystatesoftware.chuck.ChuckInterceptor
 import com.yudhistiroagung.mockva.BuildConfig
@@ -59,7 +60,7 @@ object NetworkModule {
 
     @Singleton
     @Provides
-    fun provideDebugInterceptor(context: Context): MutableList<Interceptor> {
+    fun provideDebugInterceptor(context: Application): MutableList<Interceptor> {
         return mutableListOf<Interceptor>(
             HttpLoggingInterceptor().apply {
                 level = if (BuildConfig.DEBUG) {

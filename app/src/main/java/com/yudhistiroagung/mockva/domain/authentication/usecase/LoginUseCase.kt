@@ -7,11 +7,11 @@ import com.yudhistiroagung.mockva.domain.authentication.repository.Authenticatio
 import javax.inject.Inject
 
 class LoginUseCase @Inject constructor(
-    private val loginRepository: AuthenticationRepository
+    private val authRepository: AuthenticationRepository
 ): BaseUseCase<LoginData, LoginRequest>() {
     override suspend fun run(params: LoginRequest): LoginData {
         return with(params) {
-            loginRepository.login(username, password)
+            authRepository.login(username, password)
         }
     }
 }

@@ -1,4 +1,4 @@
-package com.yudhistiroagung.mockva.data.di.module
+package com.yudhistiroagung.mockva.di.module
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.yudhistiroagung.mockva.BuildConfig
@@ -12,6 +12,7 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -19,6 +20,7 @@ object ApiModule {
 
     @Provides
     @ExperimentalSerializationApi
+    @Singleton
     fun provideAuthenticationApi(
         @NetworkModule.BasicAuthOkHttpClient okHttpClient: OkHttpClient,
         retrofitBuilder: Retrofit.Builder,
