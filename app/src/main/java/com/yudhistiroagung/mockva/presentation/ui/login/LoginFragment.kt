@@ -1,7 +1,9 @@
 package com.yudhistiroagung.mockva.presentation.ui.login
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.yudhistiroagung.mockva.R
@@ -23,7 +25,15 @@ class LoginFragment : BaseFragment() {
             loginResult.observe(viewLifecycleOwner, ::handleLoginResult)
         }
         btn_login.setOnClickListener {
+            Log.d("LOGIN", "BUTTON CLICKED")
+            loginViewModel.login()
+        }
 
+        emailAddress.addTextChangedListener{
+            loginViewModel.onUsernameChanged(it.toString())
+        }
+        password.addTextChangedListener {
+            loginViewModel.onPasswordChanged(it.toString())
         }
     }
 

@@ -31,7 +31,8 @@ object ApiModule {
             .baseUrl(BuildConfig.API_BASE_URL)
             .client(okHttpClient)
             .addConverterFactory(json.asConverterFactory(contentType))
-            .build().create(AuthenticationApi::class.java)
+            .build()
+            .create(AuthenticationApi::class.java)
     }
 
 }

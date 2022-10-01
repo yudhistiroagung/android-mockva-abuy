@@ -1,5 +1,6 @@
 package com.yudhistiroagung.mockva.presentation.ui.login
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -25,6 +26,7 @@ class LoginViewModel @Inject constructor(
     val loginResult: LiveData<UIState<Boolean>> = _loginResult
 
     fun login() {
+        Log.d("LOGIN", "login CALLED")
         val username = _emailAddress.value
         val password = _password.value
 
@@ -32,14 +34,18 @@ class LoginViewModel @Inject constructor(
             return
         }
 
+        Log.d("LOGIN", "login CALLED 2")
+
         _loginResult.value = UIState.Loading()
         loginUseCase.invoke(
             scope = viewModelScope,
             params = LoginRequest(username, password)
         ){
-            it.fold({
+            it.fold({ data ->
                 _loginResult.setValue(UIState.Success(true))
+                Log.d("LOGIN", "SUCCESS $data")
             }, { throwable ->
+                Log.d("LOGIN", "ERROR ${throwable.cause}")
                 _loginResult.setValue(UIState.Failure(throwable))
             })
         }

@@ -1,12 +1,14 @@
 package com.yudhistiroagung.mockva.data.authentication.model
 
-import com.google.gson.annotations.SerializedName
+import androidx.annotation.Keep
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
+@Keep
 @Serializable
 data class LoginPayload(
-    @SerializedName("username")
+    @SerialName("username")
     val username: String,
-    @SerializedName("password")
+    @SerialName("password")
     val password: String
 )
