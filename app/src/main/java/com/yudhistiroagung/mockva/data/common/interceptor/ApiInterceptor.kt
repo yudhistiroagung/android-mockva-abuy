@@ -14,7 +14,7 @@ class ApiInterceptor @Inject constructor(): Interceptor {
     @Throws(IOException::class)
     override fun intercept(chain: Interceptor.Chain): Response {
         val builder = chain.request().newBuilder().apply {
-            addHeader("Basic", ENCODED)
+            addHeader("Authorization", "BASIC $ENCODED")
         }
 
         return chain.proceed(builder.build())
