@@ -1,8 +1,7 @@
 package com.yudhistiroagung.mockva.di.module
 
 import android.app.Application
-import android.content.Context
-import com.readystatesoftware.chuck.ChuckInterceptor
+import com.chuckerteam.chucker.api.ChuckerInterceptor
 import com.yudhistiroagung.mockva.BuildConfig
 import com.yudhistiroagung.mockva.data.common.interceptor.ApiInterceptor
 import com.yudhistiroagung.mockva.data.common.interceptor.SessionInterceptor
@@ -69,7 +68,9 @@ object NetworkModule {
                     HttpLoggingInterceptor.Level.NONE
                 }
             }
-        ).apply { if (BuildConfig.DEBUG) add(ChuckInterceptor(context)) }
+        ).apply { if (BuildConfig.DEBUG) add(
+            ChuckerInterceptor.Builder(context).build()
+        ) }
     }
 
     @Provides

@@ -45,7 +45,7 @@ class LoginViewModel @Inject constructor(
                 _loginResult.setValue(UIState.Success(true))
                 Log.d("LOGIN", "SUCCESS $data")
             }, { throwable ->
-                Log.d("LOGIN", "ERROR ${throwable.cause}")
+                Log.d("LOGIN", "ERROR ${throwable}")
                 _loginResult.setValue(UIState.Failure(throwable))
             })
         }
