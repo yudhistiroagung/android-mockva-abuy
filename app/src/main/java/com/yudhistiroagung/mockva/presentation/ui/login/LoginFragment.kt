@@ -35,6 +35,13 @@ class LoginFragment : BaseFragment() {
         password.addTextChangedListener {
             loginViewModel.onPasswordChanged(it.toString())
         }
+
+        setCredentialsInput()
+    }
+
+    private fun setCredentialsInput() {
+        emailAddress.setText("USER050905")
+        password.setText("tb8450z")
     }
 
     private fun handleLoginResult(state: UIState<Boolean>) {
