@@ -35,7 +35,6 @@
     </LinearLayout>
 
     <include
-        android:id="@+id/loading_view"
         layout="@layout/layout_loading"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -1,10 +1,8 @@
 package com.yudhistiroagung.mockva.presentation.ui.home
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.yudhistiroagung.mockva.R
 import com.yudhistiroagung.mockva.domain.account.model.Account
 import com.yudhistiroagung.mockva.presentation.common.UIState
@@ -26,13 +24,13 @@ class HomeFragment : BaseFragment() {
     }
 
     private fun handleAccountResult(value: UIState<Account>) {
-        when(value) {
+        when (value) {
             is UIState.Loading -> {
                 showLoading()
             }
             is UIState.Success -> {
+                hideLoading()
                 val account = value.data
-                Log.d("ACCOUNT", account.toString())
             }
             else -> {
                 hideLoading()
