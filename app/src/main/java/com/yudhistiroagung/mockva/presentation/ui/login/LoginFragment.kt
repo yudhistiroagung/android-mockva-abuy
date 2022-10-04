@@ -47,12 +47,15 @@ class LoginFragment : BaseFragment() {
     private fun handleLoginResult(state: UIState<Boolean>) {
         when(state) {
             is UIState.Success -> {
+                hideLoading()
                 onLoginSuccess()
             }
-            is UIState.Loading -> {}
-            is UIState.Failure -> {}
+            is UIState.Loading -> {
+                showLoading()
+            }
             else -> {
-
+                showError()
+                hideLoading()
             }
         }
     }
