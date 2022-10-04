@@ -1,5 +1,7 @@
 package com.yudhistiroagung.mockva.di.module
 
+import com.yudhistiroagung.mockva.data.account.source.AccountDataSource
+import com.yudhistiroagung.mockva.data.account.source.network.AccountNetworkDataSource
 import com.yudhistiroagung.mockva.data.authentication.source.AuthenticationDataSource
 import com.yudhistiroagung.mockva.data.authentication.source.network.AuthenticationNetworkDataSource
 import dagger.Binds
@@ -23,5 +25,12 @@ abstract class DataSourceModule {
     abstract fun bindAuthenticationNetworkDataSource(
         authenticationDataSource: AuthenticationNetworkDataSource
     ): AuthenticationDataSource
+
+    @Binds
+    @Singleton
+    @NetworkDataSource
+    abstract fun bindAAccountNetworkDataSource(
+        accountDataSource: AccountNetworkDataSource
+    ): AccountDataSource
 
 }

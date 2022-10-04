@@ -7,4 +7,6 @@ import kotlinx.serialization.Serializable
 data class LoginResponse(
     @SerialName("id")
     val sessionId: String,
+    @SerialName("accountId")
+    val accountId: String,
 )

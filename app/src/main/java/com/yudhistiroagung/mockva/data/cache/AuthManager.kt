@@ -13,6 +13,7 @@ class AuthManager @Inject constructor(
     companion object {
         const val PREF_NAME = "AUTH_MANAGER_PREFS"
         const val SESSION_ID_KEY = "SESSION_ID_KEY"
+        const val ACCOUNT_ID_KEY = "ACCOUNT_ID_KEY"
     }
 
     private val sharedPrefs: SharedPreferences by lazy {
@@ -28,5 +29,16 @@ class AuthManager @Inject constructor(
     fun getSessionId(): String? {
         return sharedPrefs.getString(SESSION_ID_KEY, "")
     }
+
+    fun setAccountId(sessionId: String) {
+        sharedPrefs.edit()
+            .putString(ACCOUNT_ID_KEY, sessionId)
+            .apply()
+    }
+
+    fun getAccountId(): String? {
+        return sharedPrefs.getString(ACCOUNT_ID_KEY, "")
+    }
+
 
 }

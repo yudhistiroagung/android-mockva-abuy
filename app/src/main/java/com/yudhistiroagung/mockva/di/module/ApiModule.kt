@@ -2,6 +2,7 @@ package com.yudhistiroagung.mockva.di.module
 
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
 import com.yudhistiroagung.mockva.BuildConfig
+import com.yudhistiroagung.mockva.data.account.source.network.AccountApi
 import com.yudhistiroagung.mockva.data.authentication.source.network.AuthenticationApi
 import dagger.Module
 import dagger.Provides
@@ -33,6 +34,23 @@ object ApiModule {
             .addConverterFactory(json.asConverterFactory(contentType))
             .build()
             .create(AuthenticationApi::class.java)
+    }
+
+    @Provides
+    @ExperimentalSerializationApi
+    @Singleton
+    fun provideAccountApi(
+        @NetworkModule.SessionAuthOkHttpClient okHttpClient: OkHttpClient,
+        retrofitBuilder: Retrofit.Builder,
+        json: Json
+    ): AccountApi {
+        val contentType = "application/json".toMediaType()
+        return retrofitBuilder
+            .baseUrl(BuildConfig.API_BASE_URL)
+            .client(okHttpClient)
+            .addConverterFactory(json.asConverterFactory(contentType))
+            .build()
+            .create(AccountApi::class.java)
     }
 
 }

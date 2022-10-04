@@ -12,10 +12,11 @@ class AuthenticationRepositoryImpl @Inject constructor(
 ) : AuthenticationRepository {
 
     override suspend fun login(email: String, password: String): LoginData {
-        val sessionId = authNetworkDataSource.login(email, password).sessionId
-
-        authManager.setSessionId(sessionId)
-
-        return LoginData(sessionId)
+        val result = authNetworkDataSource.login(email, password)
+        return with(result) {
+            authManager.setSessionId(sessionId)
+            authManager.setAccountId(accountId)
+            LoginData(sessionId, accountId)
+        }
     }
 }
