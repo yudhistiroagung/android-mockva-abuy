@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.Snackbar
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.layout_loading.*
 
 abstract class BaseFragment : Fragment() {
 

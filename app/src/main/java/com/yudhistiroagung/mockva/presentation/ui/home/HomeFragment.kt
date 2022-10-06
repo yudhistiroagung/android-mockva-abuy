@@ -8,6 +8,7 @@ import com.yudhistiroagung.mockva.domain.account.model.Account
 import com.yudhistiroagung.mockva.presentation.common.UIState
 import com.yudhistiroagung.mockva.presentation.common.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment() {
@@ -30,12 +31,19 @@ class HomeFragment : BaseFragment() {
             }
             is UIState.Success -> {
                 hideLoading()
-                val account = value.data
+                setAccountInfo(value.data)
             }
             else -> {
                 hideLoading()
                 showError()
             }
+        }
+    }
+
+    private fun setAccountInfo(account: Account) {
+        with(account) {
+            tvName.text = "Hello, $name"
+            tvBalance.text = "Rp $balance"
         }
     }
 
