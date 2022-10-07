@@ -29,10 +29,10 @@ class LoginFragment : BaseFragment() {
             loginViewModel.login()
         }
 
-        emailAddress.addTextChangedListener{
+        emailAddress.editText?.addTextChangedListener {
             loginViewModel.onUsernameChanged(it.toString())
         }
-        password.addTextChangedListener {
+        password.editText?.addTextChangedListener {
             loginViewModel.onPasswordChanged(it.toString())
         }
 
@@ -40,8 +40,8 @@ class LoginFragment : BaseFragment() {
     }
 
     private fun setCredentialsInput() {
-        emailAddress.setText("USER050905")
-        password.setText("tb8450z")
+        emailAddress.editText?.setText("USER050905")
+        password.editText?.setText("tb8450z")
     }
 
     private fun handleLoginResult(state: UIState<Boolean>) {
